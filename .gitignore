@@ -1,0 +1,105 @@
+# 会話履歴・セッション（機密・大容量）
+history.jsonl
+sessions/
+shell-snapshots/
+
+# キャッシュ・バックアップ（不要）
+cache/
+backups/
+file-history/
+statsig/
+
+# Claude内部データ（機密）
+projects/*/tool-results/
+projects/*/*.jsonl
+projects/*/todos.json
+projects/*/summary.md
+homunculus/
+metrics/
+mcp-needs-auth-cache.json
+
+# projectsは基本除外、memoryフォルダのみ例外で含める
+# ※ Mac（制限なし）は全て追跡、Windows（1MB制限）はpush時に絞る（syncコマンドで制御）
+projects/**
+
+# Mac: ホームディレクトリ（/Users/katsu）から起動した場合
+!projects/-Users-katsu/
+!projects/-Users-katsu/memory/
+!projects/-Users-katsu/memory/**
+
+# Mac: ~/.claudeディレクトリから起動した場合
+!projects/-Users-katsu--claude/
+!projects/-Users-katsu--claude/memory/
+!projects/-Users-katsu--claude/memory/**
+
+# Windows: ホームディレクトリ（C:\Users\kattakada）から起動した場合
+!projects/C--Users-kattakada/
+!projects/C--Users-kattakada/memory/
+!projects/C--Users-kattakada/memory/**
+
+# Windows: C:\Users\kattakada\.claudeから起動した場合
+!projects/C--Users-kattakada--claude/
+!projects/C--Users-kattakada--claude/memory/
+!projects/C--Users-kattakada--claude/memory/**
+
+# Mac: Shohei（MacBook Air M3）
+!projects/-Users-shohei/
+!projects/-Users-shohei/memory/
+!projects/-Users-shohei/memory/**
+
+# Mac: Shohei（~/.claudeディレクトリから起動）
+!projects/-Users-shohei--claude/
+!projects/-Users-shohei--claude/memory/
+!projects/-Users-shohei--claude/memory/**
+
+# Mac: Yoko（MacBook Air M1）
+!projects/-Users-yoko/
+!projects/-Users-yoko/memory/
+!projects/-Users-yoko/memory/**
+
+# Mac: Yoko（~/.claudeディレクトリから起動）
+!projects/-Users-yoko--claude/
+!projects/-Users-yoko--claude/memory/
+!projects/-Users-yoko--claude/memory/**
+
+# paste-cache（一時データ）
+paste-cache/
+
+# memory/はMac・Windows共通で同期する
+# memory/
+
+# プラグイン（各環境で再インストール・ダウンロード可能）
+plugins/marketplaces/
+plugins/cache/
+plugins/data/
+plugins/installed_plugins.json
+plugins/known_marketplaces.json
+plugins/blocklist.json
+
+# Playwright MCP（ランタイムデータ）
+.playwright-mcp/
+
+# テーマ・画像キャッシュ（大容量・ローカル専用）
+themes/
+image-cache/
+
+# OS
+.DS_Store
+
+# 認証情報（機密）
+.credentials.json
+
+# ランタイム・一時データ（各環境で生成）
+debug/
+tasks/
+telemetry/
+todos/
+
+# スキル（各環境でECC/コミュニティから個別インストール）
+# インストール対象一覧: docs/skills-manifest.md 参照
+skills/*
+!skills/learned/
+!skills/learned/**
+
+# Windows固有コマンド（ローカルのみ）
+commands/*-win.md
